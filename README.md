@@ -1,4 +1,6 @@
-# oop-labs
+# oop-lab3
+Создана функция,для создания ряда кнопок по аналогии с лекцией
+[ссылка](https://sun9-12.userapi.com/lhkNtaC5j1fRalec-mvGiyqNvWLcS7vp48ekQw/SCtkI08HWFk.jpg)
 
 Вот программа после загрузки
 [ссылка](https://psv4.userapi.com/c848128/u192762618/docs/d3/8db902fb493c/1.png?extra=NbD_P71iK8oOkM6ettZiaj26NhYrbcdYQPM4_yCBlV50NlH4B9oxAAYipquz3iQyJXkvhQBmAgpKbWq4wWokPyf0MVjcc2_cSVT34UdjpJnjHNSCJdASHAQJhJ0aBhe-ftSUxRMvY78jCrsSW-l4odGj)
