@@ -1,5 +1,4 @@
 # oop-labs_4
-# oop-lab3
 Реализация полноценного компонента "Список студентов"
 ![полноценный компонент](https://psv4.userapi.com/c856536/u192762618/docs/d1/afeefce8e17a/3.png?extra=m2eEiaq_QFoSzZog0S6Ivcm7wbYcWXSyw7b0J-e6cYjAkfePOUNL7UH_LcUzbJoxQ9fCmj1yyESo3QEw0CSWSXpgszrNhCtlpq3elRBiRX89EuUgzjuVL05iSp5aoTCZOVtQeqGWzcAGeZqvWrviXMeM)
 
