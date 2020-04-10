@@ -1,12 +1,10 @@
-# oop-labs_5
-Реализация компонента "AddLesson" 
-![ компонент](https://sun3-10.userapi.com/4OpNr1fOnd35A2GWstGRCCTfMGfFr9a3zejsWg/uj1-lOkxs1o.jpg)
+# oop-labs_7
+Добавили компонент "AddLesson" из прошлого занятия на отдельную страницы
+![ компонент](https://sun3-10.userapi.com/NF1ae7SHMAbQpTAz49oJBs6HFMJuUFxWu8JVGw/YwHWboGIGAI.jpg)
 
- Перенос массива lessons из AppProps в AppState
-![перенос](https://sun3-12.userapi.com/8OCP62bGRSgbXGVNzIj1RBJFRTm4tVmEu9vudQ/4357uaieOPI.jpg)
-
-Длбавляем занятие 
-![добавление](https://sun3-10.userapi.com/i4XdbmI1PmqRlBOuzKJ75zW6CC8OHFFqW_TBdw/37oX4sMyY7k.jpg)
+ Прописала маршрут к компоненту "AddLesson"
+![маршрут](https://sun3-11.userapi.com/-NZuFg6dKDD0heSuN9jtqFzdxoLmW_wEBZZjZA/m8pa35CmK-A.jpg)
 
 Результат 
-![Результат](https://sun3-11.userapi.com/_yTYVweDxsXv6czYMm6qvYa02lg1ezmaQSeidQ/PHZAn16WeOo.jpg)
+![Результат](https://sun3-12.userapi.com/ME6YjTpjMrHaRbuzVx904Dkc02JVNyxPYH5oYw/zrFxp9-uGII.jpg)
+![Результат](https://sun3-12.userapi.com/WIqUVx0vATIZ0AxoGjZmwYVhZp3ol4U0KjZZqQ/IhUrY7KIeuY.jpg)
