@@ -31,8 +31,10 @@ val fAddLesson =
         h3 { +"Add Lesson"}
             input(type = InputType.text){}
             input(type = InputType.submit) {
-                attrs.value = "Add"
-                attrs.onClickFunction = props.onClick
+                 attrs{
+                    value = "Add"
+                    onClickFunction = props.onClick
+                }
                 }
             }
 
