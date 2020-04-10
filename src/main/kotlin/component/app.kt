@@ -5,7 +5,8 @@ import org.w3c.dom.HTMLInputElement
 import org.w3c.dom.events.Event
 import org.w3c.dom.get
 import react.*
-import react.dom.h1
+import react.dom.*
+import react.router.dom.*
 import kotlin.browser.document
 
 interface AppProps : RProps {
@@ -17,6 +18,10 @@ interface AppState : RState {
     var presents: Array<Array<Boolean>>
 }
 
+interface RouteNumberResult : RProps {
+    var number: String
+}
+
 class App : RComponent<AppProps, AppState>() {
     override fun componentWillMount() {
         state.lessons = lessonsList
@@ -26,30 +31,67 @@ class App : RComponent<AppProps, AppState>() {
     }
 
     override fun RBuilder.render() {
-        h1 { +"App" }
-        addLesson (
-            addlesson()
-            )
-        lessonListFull(
-            state.lessons,
-            props.students,
-            state.presents,
-            onClickLessonFull
-        )
-        studentListFull(
-            state.lessons,
-            props.students,
-            transform(state.presents),
-            onClickStudentFull
-        )
-    }
-
-    fun transform(source: Array<Array<Boolean>>) =
-        Array(source[0].size){row->
-            Array(source.size){col ->
-                source[col][row]
+        header {
+            h1 { +"App" }
+            nav {
+                ul {
+                    li { navLink("/lessons") { +"Lessons" } }
+                    li { navLink("/students") { +"Students" } }
+                    li { navLink("/AddLesson") { +"AddLesson" } }
+                }
             }
         }
+
+        switch {
+            route("/lessons",
+                exact = true,
+                render = {
+                    lessonList(state.lessons)
+                }
+            )
+            route("/students",
+                exact = true,
+                render = {
+                    studentList(props.students)
+                })
+                route("/AddLesson",
+                exact = true,
+                render = {
+                    addLesson (add())
+                }
+            )
+            route("/lessons/:number",
+                render = { route_props: RouteResultProps<RouteNumberResult> ->
+                    val num = route_props.match.params.number.toIntOrNull() ?: -1
+                    val lesson = state.lessons.getOrNull(num)
+                    if (lesson != null)
+                        lessonFull(
+                            lesson,
+                            props.students,
+                            state.presents[num]
+                        ) { onClick(num, it) }
+                    else
+                        p { +"No such lesson" }
+                }
+            )
+            route("/students/:number",
+                render = { route_props: RouteResultProps<RouteNumberResult> ->
+                    val num = route_props.match.params.number.toIntOrNull() ?: -1
+                    val student = props.students.getOrNull(num)
+                    if (student != null)
+                        studentFull(
+                            state.lessons,
+                            student,
+                            state.presents.map {
+                                it[num]
+                            }.toTypedArray()
+                        ) { onClick(it, num) }
+                    else
+                        p { +"No such student" }
+                }
+            )
+        }
+    }
 
     fun onClick(indexLesson: Int, indexStudent: Int) =
         { _: Event ->
@@ -59,32 +101,16 @@ class App : RComponent<AppProps, AppState>() {
             }
         }
 
-    val onClickLessonFull =
-        { indexLesson: Int ->
-            { indexStudent: Int ->
-                onClick(indexLesson, indexStudent)
-            }
-        }
-
-    val onClickStudentFull =
-        { indexStudent: Int ->
-            { indexLesson: Int ->
-                onClick(indexLesson, indexStudent)
-            }
-        }
-
-    fun addlesson() =
+    fun add() =
         { _: Event ->
-             val add = document.getElementsByTagName("input")[0]!!  as HTMLInputElement
-             val DopLesson = Lesson("${add.value}")
-                setState {
-                    lessons +=  DopLesson
-                    presents += arrayOf(Array(props.students.size) { false })
-                }
+            val add = document.getElementsByTagName("input")[0]!!  as HTMLInputElement
+            val DopLesson = Lesson("${add.value}")
+            setState {
+                lessons += DopLesson
+                presents += arrayOf(Array(props.students.size) { false })
+            }
         }
-
 }
-
 
 fun RBuilder.app(
     students: Array<Student>
