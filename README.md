@@ -1,6 +1,6 @@
 # oop-labs_5
 Реализация компонента "AddLesson" 
-![ компонент](https://sun3-10.userapi.com/4OpNr1fOnd35A2GWstGRCCTfMGfFr9a3zejsWg/uj1-lOkxs1o.jpg)
+![ компонент](https://sun3-13.userapi.com/9BGHliCZTZqtKcv1r-H31Uqw0gFOvHN_iU03fA/J0XQoUH5x58.jpg)
 
  Перенос массива lessons из AppProps в AppState
 ![перенос](https://sun3-12.userapi.com/8OCP62bGRSgbXGVNzIj1RBJFRTm4tVmEu9vudQ/4357uaieOPI.jpg)
