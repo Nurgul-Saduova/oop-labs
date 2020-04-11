@@ -103,7 +103,7 @@ class App : RComponent<AppProps, AppState>() {
 
     fun add() =
         { _: Event ->
-            val add = document.getElementsByTagName("input")[0]!!  as HTMLInputElement
+            val add = document.getElementById("lesson")!!  as HTMLInputElement
             val DopLesson = Lesson("${add.value}")
             setState {
                 lessons += DopLesson
