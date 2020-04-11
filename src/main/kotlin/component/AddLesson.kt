@@ -20,7 +20,9 @@ val fAddLesson =
     functionalComponent<AddLessonProps> {
             props ->
         h3 { +"Add Lesson"}
-            input(type = InputType.text){}
+            input(type = InputType.text){
+             attrs.id = "lesson"
+            }
             input(type = InputType.submit) {
                  attrs{
                     value = "Add"
