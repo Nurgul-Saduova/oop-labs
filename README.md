@@ -1,4 +1,4 @@
-# oop-labs_5
+# oop-labs_6
 Реализация компонента "AddLesson" 
 ![ компонент](https://sun3-13.userapi.com/9BGHliCZTZqtKcv1r-H31Uqw0gFOvHN_iU03fA/J0XQoUH5x58.jpg)
 
