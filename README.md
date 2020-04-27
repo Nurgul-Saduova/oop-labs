@@ -6,40 +6,40 @@
 Код editLesson:<br>
 
     interface EditlessonProps : RProps {
-      var lesson: Lesson
     }
 
     val feditLesson =
     functionalComponent<EditlessonProps> { props ->
-       li{
-            +props.lesson.name
+        input(type = InputType.text)  {
+            attrs.placeholder = "Enter lesson title"
+            attrs.id ="LessonAdd"
         }
     }
 
     fun RBuilder.editlesson(
-    lesson: Lesson
     ) = child(feditLesson) {
-    attrs.lesson = lesson
     }
 
  Реализация компонента "editStudent" для отображения фамилии и имени студента<br>
 Код editStudent:<br>
 
     interface EditstudentProps : RProps {
-     var student: Student
     }
 
     val feditStudent =
     functionalComponent<EditstudentProps> { props ->
-        li{
-            +"${props.student.firstname} ${props.student.surname}"
+        input(type = InputType.text) {
+            attrs.placeholder = "Enter student Firstname"
+            attrs.id ="StudentAddFirstname"
+        }
+        input(type = InputType.text) {
+            attrs.placeholder = "Enter student Surname"
+            attrs.id ="StudentAddSurname"
         }
     }
 
     fun RBuilder.editstudent(
-    student: Student
     ) = child(feditStudent) {
-     attrs.student = student
     }
 
  Компонент "anyEdit", отвечающий за редактирование списка элементов (с возможностью добавить или удалить элемент)<br>
@@ -54,31 +54,21 @@
     }
 
     fun <O> fanyEdit(
-       rComponenentEdit:RBuilder.(O)-> ReactElement,
+    rComponenentname:RBuilder.(O)-> ReactElement,
+       rComponenentEdit:RBuilder.()-> ReactElement,
        rComponent: RBuilder.(Array<O>, String, String)->ReactElement
     ) =
        functionalComponent<AnyEditProps<O>>{props ->
           h3{+"Edit"}
           ul{
-            input(type = InputType.text)  {
-            attrs.placeholder = "Enter lesson title"
-            attrs.id ="LessonAdd"
-            }
-            input(type = InputType.text) {
-                attrs.placeholder = "Enter student Firstname"
-                attrs.id ="StudentAddFirstname"
-            }
-            input(type = InputType.text) {
-                attrs.placeholder = "Enter student Surname"
-                attrs.id ="StudentAddSurname"
-            }
+             rComponenentEdit()
             input(type = InputType.submit){
                 attrs.value = "Add"
                 attrs.onClickFunction = props.Add
             }
             props.subObjs.mapIndexed { index, element ->
                 li{
-                 rComponenentEdit(element)
+                   rComponenentname(element)
                     input(type = InputType.submit){
                         attrs.value = "Delete"
                         attrs.onClickFunction = props.Delete[index]
@@ -90,7 +80,8 @@
     }
 
     fun <O> RBuilder.anyEdit(
-     rComponenentEdit:RBuilder.(O)-> ReactElement,
+    rComponenentname:RBuilder.(O)-> ReactElement,
+     rComponenentEdit:RBuilder.()-> ReactElement,
     rComponent:RBuilder.( Array<O>, String, String)-> ReactElement,
     subObjs: Array<O>,
     Add:(Event)->Unit,
@@ -98,7 +89,7 @@
     path : String,
     Delete:Array<(Event)->Unit>
     )= child(
-    withDisplayName("EditAny", fanyEdit<O>(rComponenentEdit, rComponent))
+    withDisplayName("EditAny", fanyEdit<O>(rComponenentname, rComponenentEdit, rComponent))
     ){
     attrs.subObjs = subObjs
     attrs.Add = Add
@@ -110,13 +101,13 @@
 
 
 Результат добавления студента:
-![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_8/Screenshots/добавление%20студента.PNG?raw=true)
+![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_8/Screenshots/доб%20студента.PNG?raw=true)
 
 Результат удаления студента:
-![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_8/Screenshots/удаление%20студента.PNG?raw=true)
+![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_8/Screenshots/уд%20студента.PNG?raw=true)
 
 Результат добавления урока:
-![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_8/Screenshots/добавление%20урока.PNG?raw=true)
+![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_8/Screenshots/доб%20урока.PNG?raw=true)
 
 Результат удаления урока:
-![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_8/Screenshots/удаление%20урока.PNG?raw=true)
+![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_8/Screenshots/уд%20урока.PNG?raw=true)
