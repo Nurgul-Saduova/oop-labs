@@ -14,20 +14,18 @@ import react.dom.li
 import react.dom.span
 
 interface EditstudentProps : RProps {
+    var student: Student
 }
 
 val feditStudent =
     functionalComponent<EditstudentProps> { props ->
-        input(type = InputType.text) {
-            attrs.placeholder = "Enter student Firstname"
-            attrs.id ="StudentAddFirstname"
-        }
-        input(type = InputType.text) {
-            attrs.placeholder = "Enter student Surname"
-            attrs.id ="StudentAddSurname"
+        li{
+            +"${props.student.firstname} ${props.student.surname}"
         }
     }
 
 fun RBuilder.editstudent(
+    student: Student
 ) = child(feditStudent) {
+    attrs.student = student
 }
