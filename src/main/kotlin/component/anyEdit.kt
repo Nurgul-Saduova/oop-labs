@@ -20,31 +20,44 @@ interface AnyEditProps<O>: RProps {
 }
 
 fun <O> fanyEdit(
-    rComponenentEdit:RBuilder.()-> ReactElement,
+    rComponenentEdit:RBuilder.(O)-> ReactElement,
     rComponent: RBuilder.(Array<O>, String, String)->ReactElement
 ) =
     functionalComponent<AnyEditProps<O>>{props ->
         h3{+"Edit"}
         ul{
-            rComponenentEdit()
+            input(type = InputType.text)  {
+            attrs.placeholder = "Enter lesson title"
+            attrs.id ="LessonAdd"
+            }
+            input(type = InputType.text) {
+                attrs.placeholder = "Enter student Firstname"
+                attrs.id ="StudentAddFirstname"
+            }
+            input(type = InputType.text) {
+                attrs.placeholder = "Enter student Surname"
+                attrs.id ="StudentAddSurname"
+            }
+            input(type = InputType.submit){
+                attrs.value = "Add"
+                attrs.onClickFunction = props.Add
+            }
             props.subObjs.mapIndexed { index, element ->
                 li{
+                    rComponenentEdit(element)
                     input(type = InputType.submit){
                         attrs.value = "Delete"
                         attrs.onClickFunction = props.Delete[index]
                     }
                 }
             }
-            input(type = InputType.submit){
-                attrs.value = "Add"
-                attrs.onClickFunction = props.Add
-            }
+
             rComponent( props.subObjs,props.name,props.path)
         }
     }
 
 fun <O> RBuilder.anyEdit(
-    rComponenentEdit:RBuilder.()-> ReactElement,
+    rComponenentEdit:RBuilder.(O)-> ReactElement,
     rComponent:RBuilder.( Array<O>, String, String)-> ReactElement,
     subObjs: Array<O>,
     Add:(Event)->Unit,
@@ -60,3 +73,4 @@ fun <O> RBuilder.anyEdit(
     attrs.name = name
     attrs.path = path
 }
+
