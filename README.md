@@ -93,7 +93,7 @@
     attrs.Delete = Delete
     attrs.name = name
     attrs.path = path
-}
+    }
 
 Результат добавления урока 
 ![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_8/Screenshots/добавление%20урока.PNG?raw=true)
