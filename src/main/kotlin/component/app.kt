@@ -63,6 +63,7 @@ class App : RComponent<AppProps, AppState>() {
                 exact = true,
                 render = {
                     anyEdit(
+                        RBuilder::namestudent,
                         RBuilder::editstudent,
                         RBuilder::anyList,
                         state.students,
@@ -78,6 +79,7 @@ class App : RComponent<AppProps, AppState>() {
                 exact = true,
                 render = {
                     anyEdit(
+                        RBuilder::namelesson,
                         RBuilder::editlesson,
                         RBuilder::anyList,
                         state.lessons,
@@ -182,6 +184,9 @@ fun RBuilder.app(
     child(
         withDisplayName("AppHoc", App::class)
     ) {}
+
+
+
 
 
 
