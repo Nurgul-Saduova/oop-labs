@@ -2,7 +2,6 @@ package component
 
 import hoc.withDisplayName
 import kotlinx.html.InputType
-import kotlinx.html.id
 import kotlinx.html.js.onClickFunction
 import org.w3c.dom.events.Event
 import react.*
@@ -20,31 +19,21 @@ interface AnyEditProps<O>: RProps {
 }
 
 fun <O> fanyEdit(
-    rComponenentEdit:RBuilder.(O)-> ReactElement,
+    rComponenentname:RBuilder.(O)-> ReactElement,
+    rComponenentEdit:RBuilder.()-> ReactElement,
     rComponent: RBuilder.(Array<O>, String, String)->ReactElement
 ) =
     functionalComponent<AnyEditProps<O>>{props ->
         h3{+"Edit"}
         ul{
-            input(type = InputType.text)  {
-            attrs.placeholder = "Enter lesson title"
-            attrs.id ="LessonAdd"
-            }
-            input(type = InputType.text) {
-                attrs.placeholder = "Enter student Firstname"
-                attrs.id ="StudentAddFirstname"
-            }
-            input(type = InputType.text) {
-                attrs.placeholder = "Enter student Surname"
-                attrs.id ="StudentAddSurname"
-            }
+            rComponenentEdit()
             input(type = InputType.submit){
                 attrs.value = "Add"
                 attrs.onClickFunction = props.Add
             }
             props.subObjs.mapIndexed { index, element ->
                 li{
-                    rComponenentEdit(element)
+                    rComponenentname(element)
                     input(type = InputType.submit){
                         attrs.value = "Delete"
                         attrs.onClickFunction = props.Delete[index]
@@ -57,7 +46,8 @@ fun <O> fanyEdit(
     }
 
 fun <O> RBuilder.anyEdit(
-    rComponenentEdit:RBuilder.(O)-> ReactElement,
+    rComponenentname: RBuilder.(O) -> ReactElement,
+    rComponenentEdit:RBuilder.()-> ReactElement,
     rComponent:RBuilder.( Array<O>, String, String)-> ReactElement,
     subObjs: Array<O>,
     Add:(Event)->Unit,
@@ -65,7 +55,7 @@ fun <O> RBuilder.anyEdit(
     path : String,
     Delete:Array<(Event)->Unit>
 )= child(
-    withDisplayName("EditAny", fanyEdit<O>(rComponenentEdit, rComponent))
+    withDisplayName("EditAny", fanyEdit<O>(rComponenentname, rComponenentEdit, rComponent))
 ){
     attrs.subObjs = subObjs
     attrs.Add = Add
