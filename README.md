@@ -110,4 +110,11 @@
 Результат удаления студента:
 ![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_8/Screenshots/уд%20студента.PNG?raw=true)
 
+Результат добавления урока:
+
+![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_8/Screenshots/доб%20урока.PNG?raw=true)
+
+Результат удаления урока:
+
+![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_8/Screenshots/уд%20урока.PNG?raw=true)
 
