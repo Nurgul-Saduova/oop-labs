@@ -1,7 +1,6 @@
 package component
 
 import data.Lesson
-import data.Student
 import kotlinx.html.InputType
 import kotlinx.html.id
 import kotlinx.html.js.onClickFunction
@@ -13,19 +12,19 @@ import react.dom.input
 import react.dom.li
 import react.dom.span
 
-interface EditstudentProps : RProps {
-    var student: Student
+interface EditlessonProps : RProps {
+    var lesson: Lesson
 }
 
-val feditStudent =
-    functionalComponent<EditstudentProps> { props ->
+val feditLesson =
+    functionalComponent<EditlessonProps> { props ->
         li{
-            +"${props.student.firstname} ${props.student.surname}"
+            +props.lesson.name
         }
     }
 
-fun RBuilder.editstudent(
-    student: Student
-) = child(feditStudent) {
-    attrs.student = student
+fun RBuilder.editlesson(
+    lesson: Lesson
+) = child(feditLesson) {
+    attrs.lesson = lesson
 }
