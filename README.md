@@ -105,6 +105,7 @@
 ![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_9/Screenshots/доб%20студента.PNG?raw=true)
 
 Результат удаления студента:
+
 ![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_9/Screenshots/уд%20студента.PNG?raw=true)
 
 Результат добавления урока:
