@@ -128,18 +128,26 @@
       }
     }
 
+Фильтрация занятия по студенту:
 
-Результат добавления студента:
-![Результат]()
+![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_10/Screenshots/allLes.PNG?raw=true)
 
-Результат удаления студента:
+Фильтрация занятия по отсутствию студента:
 
-![Результат]()
+![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_10/Screenshots/absentLes.PNG?raw=true)
 
-Результат добавления урока:
+Фильтрация занятия по присутствию студента:
 
-![Результат]()
+![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_10/Screenshots/presentLes.PNG?raw=true)
 
-Результат удаления урока:
+Все студенты:
 
-![Результат]()
+![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_10/Screenshots/allStud.PNG?raw=true)
+
+Студенты, отсутствующие на занятии:
+
+![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_10/Screenshots/absentStud.PNG?raw=true)
+
+Студенты, присутствующие на занятии:
+
+![Результат](https://github.com/Nurgul-Saduova/oop-labs/blob/lab_10/Screenshots/presentStud.PNG?raw=true)
